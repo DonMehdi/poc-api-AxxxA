@@ -8,16 +8,6 @@ const {
   InternalServorError,
 } = require("../utils/apiError");
 
-module.exports = (err, req, res, _next) => {
-  let { statusCode } = err;
-  const { code, message } = getRightError(statusCode, err);
-  const response = {
-    code,
-    message,
-  };
-  res.status(response.code).json(response);
-};
-
 const getRightError = (statusCode, err) => {
   switch (statusCode) {
     case 401:
@@ -33,4 +23,14 @@ const getRightError = (statusCode, err) => {
     default:
       return new InternalServorError(err.message);
   }
+};
+// eslint-disable-next-line no-unused-vars
+module.exports = (err, req, res, _next) => {
+  const { statusCode } = err;
+  const { code, message } = getRightError(statusCode, err);
+  const response = {
+    code,
+    message,
+  };
+  res.status(response.code).json(response);
 };
