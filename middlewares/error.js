@@ -11,7 +11,6 @@ const {
 module.exports = (err, req, res, _next) => {
   let { statusCode } = err;
   const { code, message } = getRightError(statusCode, err);
-
   const response = {
     code,
     message,
