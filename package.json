@@ -4,6 +4,7 @@
   "description": "Api to get users and policies",
   "main": "index.js",
   "scripts": {
+    "start": "nodemon index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -15,5 +16,12 @@
   "bugs": {
     "url": "https://github.com/DonMehdi/poc-api-AxxxA/issues"
   },
-  "homepage": "https://github.com/DonMehdi/poc-api-AxxxA#readme"
+  "homepage": "https://github.com/DonMehdi/poc-api-AxxxA#readme",
+  "devDependencies": {
+    "nodemon": "^2.0.7"
+  },
+  "dependencies": {
+    "express": "^4.17.1",
+    "helmet": "^4.4.1"
+  }
 }
