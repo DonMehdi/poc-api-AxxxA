@@ -1,0 +1,19 @@
+{
+  "name": "poc-api-axxxa",
+  "version": "1.0.0",
+  "description": "Api to get users and policies",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DonMehdi/poc-api-AxxxA.git"
+  },
+  "author": "Mehdi Koraichi",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DonMehdi/poc-api-AxxxA/issues"
+  },
+  "homepage": "https://github.com/DonMehdi/poc-api-AxxxA#readme"
+}
