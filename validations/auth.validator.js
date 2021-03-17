@@ -1,3 +1,5 @@
+/* eslint-disable consistent-return */
+
 const Joi = require("joi");
 
 const schemaLogin = Joi.object({
@@ -8,6 +10,7 @@ const schemaLogin = Joi.object({
 const loginValidation = (req, res, next) => {
   try {
     const { error } = schemaLogin.validate(req.body);
+    // eslint-disable-next-line no-throw-literal
     if (error) throw { statusCode: 422 };
     return next();
   } catch (err) {

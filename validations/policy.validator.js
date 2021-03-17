@@ -1,3 +1,6 @@
+/* eslint-disable consistent-return */
+/* eslint-disable no-throw-literal */
+
 const Joi = require("joi");
 
 /**

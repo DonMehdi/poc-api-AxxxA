@@ -1,4 +1,5 @@
 const express = require("express");
+
 const app = express();
 const helmet = require("helmet");
 const clientRoute = require("./routes/client");
@@ -6,7 +7,7 @@ const policyRoute = require("./routes/policy");
 const authRoute = require("./routes/auth");
 const errHandler = require("./middlewares/error");
 
-//Middlewares
+// Middlewares
 app.use(express.json());
 app.use(helmet());
 

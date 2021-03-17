@@ -1,3 +1,4 @@
+/* eslint-disable max-classes-per-file */
 /**
  * Authentication Error
  * @class AuthenticationError
