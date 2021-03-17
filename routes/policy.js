@@ -1,16 +1,19 @@
 const router = require("express").Router();
 const policyController = require("../controllers/policy");
-
+const {
+  getPoliciessValidation,
+  getPoliciessValidationById,
+} = require("../validations/policy.validator");
 /**
  * @Route
  * Get the list of policies' client paginated and limited to 10 elements by default.
  */
-router.get("/", policyController.getPolicies);
+router.get("/", getPoliciessValidation("query"), policyController.getPolicies);
 
 /**
  * @Route
  * Get the details of a policy's client
  */
-router.get("/:id", policyController.getUserByPolicyId);
+router.get("/:id", getPoliciessValidationById("params"), policyController.getUserByPolicyId);
 
 module.exports = router;
