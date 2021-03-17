@@ -1,4 +1,4 @@
-exports.signin = async (req, res, next) => {
+exports.signin = async (req, res) => {
   res.status(200).json({
     status: "success",
   });

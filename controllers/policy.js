@@ -1,10 +1,10 @@
-exports.getPolicies = async (req, res, next) => {
+exports.getPolicies = async (req, res) => {
   res.status(200).json({
     status: "success",
   });
 };
 
-exports.getUserByPolicyId = async (req, res, next) => {
+exports.getUserByPolicyId = async (req, res) => {
   res.status(200).json({
     status: "success",
   });
