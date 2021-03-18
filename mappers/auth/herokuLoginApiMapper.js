@@ -1,3 +1,5 @@
+const decode = require("../../utils/decode");
+
 /**
  *
  * @param loginRequestMyApiDTO
@@ -16,7 +18,7 @@ const loginRequestMyApiDTOToHerokuLoginDTO = (loginRequestMyApiDTO) => ({
 const HerokuLoginResponseDTOTOResponseMyApiDTO = (HerokuLoginResponseDTO) => ({
   token: HerokuLoginResponseDTO.token,
   type: HerokuLoginResponseDTO.type,
-  expires_in: 0,
+  expires_in: decode(HerokuLoginResponseDTO.token).exp,
 });
 
 module.exports = { loginRequestMyApiDTOToHerokuLoginDTO, HerokuLoginResponseDTOTOResponseMyApiDTO };
