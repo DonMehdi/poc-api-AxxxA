@@ -3,8 +3,8 @@
 const Joi = require("joi");
 
 const getClients = Joi.object({
-  name: Joi.string().required(),
-  limit: Joi.number().integer().required(),
+  name: Joi.string(),
+  limit: Joi.number().integer(),
 });
 
 const getClientsById = Joi.object({

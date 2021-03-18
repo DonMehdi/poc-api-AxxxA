@@ -1,29 +1,35 @@
+/* eslint-disable array-callback-return */
 /**
  *
- * @param policyRequestMyApiDTO
- * @returns HerokupolicyDTO
+ * @param herokupolicyResponseDTO
+ * @returns ResponsePolicyMyApiDTO
  */
-const policyRequestMyApiDTOToHerokupolicyDTO = (policyRequestMyApiDTO) => ({
-  policy_id: policyRequestMyApiDTO.username,
-  policy_secret: policyRequestMyApiDTO.password,
-});
+const HerokupolicyResponseDTOTOResponsePolicyMyApiDTO = (herokupolicyResponseDTO, req) => {
+  const responsePolicyMyApiDTO = [];
+  herokupolicyResponseDTO.forEach((element) => {
+    // eslint-disable-next-line no-param-reassign
+    delete element.clientId;
+    responsePolicyMyApiDTO.push(element);
+  });
+  if (req.query.limit) return responsePolicyMyApiDTO.slice(0, req.query.limit);
+  return responsePolicyMyApiDTO.slice(0, 10);
+};
 
 /**
  *
- * @param HerokupolicyResponseDTO
- * @returns ResponsePolicyMyApiDTO
+ * @param herokupolicyIdResponseDTO
+ * @returns herokuClientRespDTO
  */
-const HerokupolicyResponseDTOTOResponsePolicyMyApiDTO = (HerokupolicyResponseDTO) => {
-  const responsePolicyMyApiDTO = [];
-  HerokupolicyResponseDTO.forEach((element) => {
-    // eslint-disable-next-line no-param-reassign
-    delete element.clienId;
-    responsePolicyMyApiDTO.push(element);
-  });
-  return responsePolicyMyApiDTO;
+const HerokupolicyIdResponseDTOTOResponsePolicyMyApiDTO = (
+  herokupolicyIdResponseDTO,
+  herokuClientRespDTO,
+  req
+) => {
+  const filtredPolicy = herokupolicyIdResponseDTO.find((policy) => policy.id === req.params.id);
+  return [herokuClientRespDTO.find((client) => client.id === filtredPolicy.clientId)];
 };
 
 module.exports = {
-  policyRequestMyApiDTOToHerokupolicyDTO,
   HerokupolicyResponseDTOTOResponsePolicyMyApiDTO,
+  HerokupolicyIdResponseDTOTOResponsePolicyMyApiDTO,
 };

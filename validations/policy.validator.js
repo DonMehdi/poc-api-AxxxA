@@ -7,7 +7,7 @@ const Joi = require("joi");
  * @Schemas
  */
 const getPoliciess = Joi.object({
-  limit: Joi.number().integer().required(),
+  limit: Joi.number().integer(),
 });
 
 const getPoliciessById = Joi.object({
