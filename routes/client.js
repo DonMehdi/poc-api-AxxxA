@@ -5,6 +5,13 @@ const {
   getClientsValidatioById,
 } = require("../validations/client.validator");
 
+const verifyToken = require("../middlewares/verifyToken");
+
+/**
+ * @Middleware
+ * Allow only authenticated users
+ *  */
+router.use(verifyToken.verification);
 /**
  * @Route
  * Get user by _id
