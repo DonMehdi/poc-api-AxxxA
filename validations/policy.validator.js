@@ -20,7 +20,7 @@ const getPoliciessById = Joi.object({
 const getPoliciessValidation = (property) => (req, res, next) => {
   try {
     const { error } = getPoliciess.validate(req[property]);
-    if (error) throw { statusCode: 422 };
+    if (error) throw { statusCode: 400 };
     return next();
   } catch (err) {
     next(err);
@@ -30,7 +30,7 @@ const getPoliciessValidation = (property) => (req, res, next) => {
 const getPoliciessValidationById = (property) => (req, res, next) => {
   try {
     const { error } = getPoliciessById.validate(req[property]);
-    if (error) throw { statusCode: 422 };
+    if (error) throw { statusCode: 400 };
     return next();
   } catch (err) {
     next(err);

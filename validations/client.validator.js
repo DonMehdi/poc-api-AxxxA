@@ -14,7 +14,7 @@ const getClientsById = Joi.object({
 const getClientsValidation = (property) => (req, res, next) => {
   try {
     const { error } = getClients.validate(req[property]);
-    if (error) throw { statusCode: 422 };
+    if (error) throw { statusCode: 400 };
     return next();
   } catch (err) {
     next(err);
@@ -24,7 +24,7 @@ const getClientsValidation = (property) => (req, res, next) => {
 const getClientsValidatioById = (property) => (req, res, next) => {
   try {
     const { error } = getClientsById.validate(req[property]);
-    if (error) throw { statusCode: 422 };
+    if (error) throw { statusCode: 400 };
     return next();
   } catch (err) {
     next(err);

@@ -1,4 +1,4 @@
-/* eslint-disable array-callback-return */
+/* eslint-disable no-throw-literal */
 /**
  *
  * @param herokupolicyResponseDTO
@@ -26,6 +26,7 @@ const HerokupolicyIdResponseDTOTOResponsePolicyMyApiDTO = (
   req
 ) => {
   const filtredPolicy = herokupolicyIdResponseDTO.find((policy) => policy.id === req.params.id);
+  if (!filtredPolicy) throw { statusCode: 400, messageErr: "Policy id doesnt exist" };
   return [herokuClientRespDTO.find((client) => client.id === filtredPolicy.clientId)];
 };
 
