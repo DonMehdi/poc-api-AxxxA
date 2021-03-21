@@ -8,26 +8,26 @@ const {
   InternalServorError,
 } = require("../utils/apiError");
 
-const getRightError = (statusCode, err) => {
+const getRightError = (statusCode, messageErr) => {
   switch (statusCode) {
     case 401:
-      return new AuthenticationError();
+      return new AuthenticationError(messageErr);
     case 404:
-      return new NotFoundError();
+      return new NotFoundError(messageErr);
     case 400:
-      return new BadRequestError();
+      return new BadRequestError(messageErr);
     case 403:
-      return new ForbiddenError();
+      return new ForbiddenError(messageErr);
     case 422:
-      return new ValidationError();
+      return new ValidationError(messageErr);
     default:
-      return new InternalServorError(err.message);
+      return new InternalServorError(messageErr);
   }
 };
 // eslint-disable-next-line no-unused-vars
 module.exports = (err, req, res, _next) => {
-  const { statusCode } = err;
-  const { code, message } = getRightError(statusCode, err);
+  const { statusCode, messageErr } = err;
+  const { code, message } = getRightError(statusCode, messageErr);
   const response = {
     code,
     message,

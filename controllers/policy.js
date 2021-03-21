@@ -47,7 +47,6 @@ exports.getUserByPolicyId = async (req, res, next) => {
     const herokuPoliciesResp = await http(requestPolicies);
     const requestClients = { ...requestPolicies, uri: routes.endpoint + routes.clients };
     const herokuClientResp = await http(requestClients);
-
     /*
      * Mapping the api response to our api response
      */

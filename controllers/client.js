@@ -79,6 +79,7 @@ exports.getClientPolicies = async (req, res, next) => {
         headers: { Authorization: `Bearer ${req.token}`, "Content-Type": "application/json" },
       },
     };
+    const herokuClientsResp = await http(requestClients);
     const requestPolicies = { ...requestClients, uri: routes.endpoint + routes.policies };
     const herokuPoliciesResp = await http(requestPolicies);
 
@@ -87,6 +88,7 @@ exports.getClientPolicies = async (req, res, next) => {
      */
     const myApiClientResp = HerokuclientIDPoliciesResponseDTOTOClientsByIdPoliciesResponseMyApiDTO(
       herokuPoliciesResp,
+      herokuClientsResp,
       req
     );
     // console.log(myApiRespi);

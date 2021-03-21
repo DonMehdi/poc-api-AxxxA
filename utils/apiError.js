@@ -8,7 +8,7 @@ class AuthenticationError extends Error {
   constructor(message = "AuthenticationError") {
     super(message);
     this.code = 401;
-    this.message = "AuthenticationError";
+    this.message = message;
   }
 }
 
@@ -18,7 +18,7 @@ class AuthenticationError extends Error {
  * @extends {Error}
  */
 class InternalServorError extends Error {
-  constructor(message) {
+  constructor(message = "InternalServorError") {
     super(message);
     this.code = 500;
     this.message = message;
@@ -31,10 +31,10 @@ class InternalServorError extends Error {
  * @extends {Error}
  */
 class BadRequestError extends Error {
-  constructor(message) {
+  constructor(message = "BadRequest") {
     super(message);
     this.code = 400;
-    this.message = "BadRequestError";
+    this.message = message;
   }
 }
 
@@ -48,7 +48,7 @@ class ForbiddenError extends Error {
   constructor(message = "ForbiddenError") {
     super(message);
     this.code = 403;
-    this.name = "ForbiddenError";
+    this.name = message;
   }
 }
 
@@ -63,7 +63,7 @@ class NotFoundError extends Error {
   constructor(message = "NotFoundError") {
     super(message);
     this.code = 404;
-    this.message = "NotFoundError";
+    this.message = message;
   }
 }
 

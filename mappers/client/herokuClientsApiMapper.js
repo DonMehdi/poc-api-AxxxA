@@ -1,3 +1,4 @@
+/* eslint-disable no-throw-literal */
 /**
  *
  * @param HerokuclientResponseDTO
@@ -48,6 +49,7 @@ const HerokuclientIDResponseDTOTOClientsByIdResponseMyApiDTO = (
   const resp = [];
 
   const filtredClient = herokuClientsResp.find((client) => client.id === req.params.id);
+  if (!filtredClient) throw { statusCode: 400, messageErr: "Client id doesnt exist" };
   const policies = herokuPoliciesResp.filter((policie) => policie.clientId === filtredClient.id);
   if (policies.length) {
     clientpolicy = policies.map((policieUser) => ({
@@ -67,9 +69,12 @@ const HerokuclientIDResponseDTOTOClientsByIdResponseMyApiDTO = (
  */
 const HerokuclientIDPoliciesResponseDTOTOClientsByIdPoliciesResponseMyApiDTO = (
   herokuPoliciesResp,
+  herokuClientsResp,
   req
 ) => {
   let clientpolicy;
+  const filtredClient = herokuClientsResp.find((client) => client.id === req.params.id);
+  if (!filtredClient) throw { statusCode: 400, messageErr: "Client id doesnt exist" };
 
   const policies = herokuPoliciesResp.filter((policie) => policie.clientId === req.params.id);
   if (policies.length) {
