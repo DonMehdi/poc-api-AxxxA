@@ -12,6 +12,9 @@ https://www.notion.so/3234246eac5d4ea5bba214f45896491f?v=ad0edcc51a044d99ba5663c
 
 
 ## API
+
+Server: http://localhost:3000/api/v1
+
 | Endpoint   |      Type      |      Body      |  Description |
 |------------|:--------------:|:--------------:|-------------:|
 | `/login` |  POST | `{username: "dare", password: "s3cr3t"}` | Sign in to get a token |
@@ -62,7 +65,7 @@ npm run test
 ```
 
 ### API swagger
-https://dare-nodejs-assessment.herokuapp.com/assessment-swagger/static/index.html#/ 
+https://dare-nodejs-assessment.herokuapp.com/assessment-swagger/static/index.html#/
 
 ## Language used
 * Node.js v14.7.0

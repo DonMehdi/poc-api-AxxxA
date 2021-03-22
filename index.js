@@ -14,9 +14,9 @@ app.use(helmet());
 /**
  * @Routes
  *  */
-app.use("/login", authRoute);
-app.use("/clients", clientRoute);
-app.use("/policies", policyRoute);
+app.use("/api/v1/login", authRoute);
+app.use("/api/v1/clients", clientRoute);
+app.use("/api/v1/policies", policyRoute);
 
 app.use(errHandler);
 
