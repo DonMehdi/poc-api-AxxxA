@@ -1,6 +1,16 @@
 # Application for an insurance company
 An application that act as middleware to get clients and policies data from an api and pass it to the client.
 
+# Git flow
+Each branch of this app represents a feature or user storie.
+
+
+# Application Specs
+The user stories for creating this app will be found at the link below as a jira model:
+https://www.notion.so/3234246eac5d4ea5bba214f45896491f?v=ad0edcc51a044d99ba5663c97f7309fd
+
+
+
 ## API
 | Endpoint   |      Type      |      Body      |  Description |
 |------------|:--------------:|:--------------:|-------------:|
